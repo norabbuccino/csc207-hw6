@@ -70,12 +70,4 @@ public class MatchingParens
           }
       }
   }
-
-  public static void main(String[] args)
-    throws IOException
-  {
-    BufferedReader eyes = new BufferedReader(new InputStreamReader(System.in));
-    String expression = eyes.readLine();
-    matchingParens(expression);
-  }
 }
