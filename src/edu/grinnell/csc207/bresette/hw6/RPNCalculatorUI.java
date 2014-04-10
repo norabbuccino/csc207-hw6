@@ -26,32 +26,32 @@ public class RPNCalculatorUI
               {
                 String output = myStack.peek();
                 pen.println(output);
-              }
+              } // if not empty
             else
               {
                 pen.println("The stack is empty");
-              }
-          }
+              } // else
+          } // if input is p
         else if (input.equals("s"))
           {
             if (!myStack.isEmpty())
               {
                 String elements = myStack.toString();
                 pen.println(elements);
-              }
+              } // if not empty
             else
               {
                 pen.println("The stack is empty");
-              }
-          }
+              } // else
+          } // if the input is s
         else if (input.equals("c"))
           {
             myStack.clear();
-          }
+          } // if input is c
         else if (input.equals("q"))
           {
             run = false;
-          }
+          } // if input is q
         else
           {
             String[] expression = input.split(" ");
@@ -59,8 +59,8 @@ public class RPNCalculatorUI
             for (int i = 0; i < expression.length; i++)
               {
                 RPNCalculator.evaluate(expression[i], myStack);
-              }
-          }
-      }
-  }
-}
+              } // for
+          } // else
+      } // while
+  } // main
+} // class RPNCalculatorUI

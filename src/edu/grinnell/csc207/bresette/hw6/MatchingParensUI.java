@@ -7,10 +7,10 @@ import java.io.InputStreamReader;
 public class MatchingParensUI
 {
   public static void main(String[] args)
-      throws IOException
-    {
-      BufferedReader eyes = new BufferedReader(new InputStreamReader(System.in));
-      String expression = eyes.readLine();
-      MatchingParens.matchingParens(expression);
-    }
-}
+    throws IOException
+  {
+    BufferedReader eyes = new BufferedReader(new InputStreamReader(System.in));
+    String expression = eyes.readLine();
+    MatchingParens.matchingParens(expression);
+  } // main
+} // class MatchingParensUI
