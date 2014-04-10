@@ -15,17 +15,17 @@ public class RPNCalculator
     PrintWriter pen = new PrintWriter(System.out, true);
     BufferedReader eyes = new BufferedReader(new InputStreamReader(System.in));
     boolean run = true;
-    
+
     while (run)
       {
         String input = eyes.readLine();
 
         if (input.equals("p"))
           {
-            if(!myStack.isEmpty())
+            if (!myStack.isEmpty())
               {
-            String output = myStack.peek();
-            pen.println(output);
+                String output = myStack.peek();
+                pen.println(output);
               }
             else
               {
@@ -34,7 +34,7 @@ public class RPNCalculator
           }
         else if (input.equals("s"))
           {
-            if(!myStack.isEmpty())
+            if (!myStack.isEmpty())
               {
                 String elements = myStack.toString();
                 pen.println(elements);

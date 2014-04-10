@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
  * Queues implemented with arrays.
  *
  * @author Samuel A. Rebelsky
- * @author Your Name Here
+ * @author Nora Bresette Buccino
  * 
  * Got the idea to use modulo for put and get from 
  * http://www.careercup.com/question?id=14133666
@@ -34,7 +34,7 @@ public class ArrayBasedQueue<T>
    * The index of the end of the queue
    */
   int back;
-  
+
   /**
    * The number of elements in the queue.
    */
@@ -83,13 +83,13 @@ public class ArrayBasedQueue<T>
   public void put(T val)
     throws Exception
   {
-    if(this.isFull())
+    if (this.isFull())
       {
         throw new Exception("no more room!");
-      }
+      } // if(this.isFull())
     this.values[this.back] = val;
     this.back = (this.back + 1) % this.values.length;
-    this.size ++;
+    this.size++;
 
   } // put(T)
 
@@ -97,14 +97,14 @@ public class ArrayBasedQueue<T>
   public T get()
     throws Exception
   {
-    if(this.isEmpty())
+    if (this.isEmpty())
       {
         throw new Exception("empty");
-      }
+      } // if(this.isEmpty())
     T result = this.values[this.front];
     this.values[this.front] = null;
     this.front = (this.front + 1) % this.values.length;
-    this.size --;
+    this.size--;
     return result;
 
   } // get(T)
@@ -148,6 +148,10 @@ class ArrayBasedQueueIterator<T>
   // | Fields |
   // +--------+
   
+  /**
+   * The queue the iterator is iterating
+   */
+  ArrayBasedQueue<T> queue;
   // +--------------+----------------------------------------------------
   // | Constructors |
   // +--------------+
@@ -157,7 +161,7 @@ class ArrayBasedQueueIterator<T>
    */
   public ArrayBasedQueueIterator(ArrayBasedQueue<T> q)
   {
-    // STUB
+    this.queue = q;
   } // ArrayBasedQueueIterator
 
   // +---------+---------------------------------------------------------
@@ -172,15 +176,13 @@ class ArrayBasedQueueIterator<T>
       {
         throw new NoSuchElementException("no elements remain");
       } // if no elements 
-    // STUB
-    throw new NoSuchElementException("unimplemented");
+    return this.queue.values[this.queue.front];
   } // next()
 
   @Override
   public boolean hasNext()
   {
-    // STUB
-    return false;
+    return !this.queue.isEmpty();
   } // hasNext()
 
   @Override
