@@ -1,5 +1,6 @@
 package edu.grinnell.csc207.bresette.hw6;
 
+import java.math.BigDecimal;
 import java.util.Stack;
 
 public class RPNCalculator
@@ -16,30 +17,47 @@ public class RPNCalculator
       {
         String val1 = myStack.pop();
         String val2 = myStack.pop();
-        Integer sum = Integer.parseInt(val1) + Integer.parseInt(val2);
-        myStack.push(Integer.toString(sum));
+        BigDecimal sum =
+            BigDecimal.valueOf(Double.parseDouble(val1))
+                      .add(BigDecimal.valueOf(Double.parseDouble(val2)));
+        myStack.push(sum.toString());
       } // if equals +
     else if (expression.equals("-"))
       {
         String val1 = myStack.pop();
         String val2 = myStack.pop();
-        Integer diff = Integer.parseInt(val2) - Integer.parseInt(val1);
-        myStack.push(Integer.toString(diff));
+        BigDecimal diff =
+            BigDecimal.valueOf(Double.parseDouble(val2))
+                      .subtract(BigDecimal.valueOf(Double.parseDouble(val1)));
+        myStack.push(diff.toString());
       } // if equals -
     else if (expression.equals("*"))
       {
         String val1 = myStack.pop();
         String val2 = myStack.pop();
-        Integer product = Integer.parseInt(val1) * Integer.parseInt(val2);
-        myStack.push(Integer.toString(product));
+        BigDecimal product =
+            BigDecimal.valueOf(Double.parseDouble(val1))
+                      .multiply(BigDecimal.valueOf(Double.parseDouble(val2)));
+        myStack.push(product.toString());
       } // if equals *
     else if (expression.equals("/"))
       {
         String val1 = myStack.pop();
         String val2 = myStack.pop();
-        Integer quotient = Integer.parseInt(val2) / Integer.parseInt(val1);
-        myStack.push(Integer.toString(quotient));
+        BigDecimal quotient =
+            BigDecimal.valueOf(Double.parseDouble(val2))
+                      .divide(BigDecimal.valueOf(Double.parseDouble(val1)));
+        myStack.push(quotient.toString());
       } // if equals /
+    else if (expression.equals("^"))
+      {
+        String val1 = myStack.pop();
+        String val2 = myStack.pop();
+        BigDecimal power =
+            BigDecimal.valueOf(Double.parseDouble(val2))
+                      .pow(Integer.parseInt(val1));
+        myStack.push(power.toString());
+      }
     else
       {
         myStack.push(expression);
