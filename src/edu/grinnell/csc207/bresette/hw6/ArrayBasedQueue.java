@@ -9,6 +9,7 @@ import java.util.NoSuchElementException;
  * @author Samuel A. Rebelsky
  * @author Nora Bresette Buccino
  * 
+ * Works cited:
  * Got the idea to use modulo for put and get from 
  * http://www.careercup.com/question?id=14133666
  * 
